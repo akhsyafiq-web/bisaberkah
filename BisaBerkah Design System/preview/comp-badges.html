@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body{margin:0;padding:24px;background:#fff;font-family:var(--font-sans)}
+  .name{font-weight:700;font-size:15px;color:var(--text-primary);margin-bottom:16px}
+  .row{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:14px}
+  .badge{display:inline-flex;align-items:center;gap:5px;font-size:13px;font-weight:600;
+         padding:3px 10px 3px 8px;border-radius:var(--radius-full);border:1px solid transparent}
+  .dot{width:7px;height:7px;border-radius:50%}
+  .b-brand{background:var(--brand-50);color:var(--brand-700);border-color:var(--brand-100)}
+  .b-success{background:var(--success-50);color:var(--success-700);border-color:#ABEFC6}
+  .b-warn{background:var(--warning-50);color:var(--warning-700);border-color:#FEDF89}
+  .b-gold{background:var(--gold-50);color:var(--gold-700);border-color:var(--gold-100)}
+  .b-gray{background:var(--gray-100);color:var(--gray-700);border-color:var(--gray-200)}
+  .tag{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:500;color:var(--gray-700);
+       background:#fff;border:1px solid var(--border-secondary);border-radius:var(--radius-sm);padding:4px 9px}
+  .em{font-size:14px}
+</style></head>
+<body>
+  <div class="name">Badges &amp; category tags</div>
+  <div class="row">
+    <span class="badge b-success"><span class="dot" style="background:var(--success-500)"></span>Pemasukan</span>
+    <span class="badge b-brand"><span class="dot" style="background:var(--brand-500)"></span>Hemat</span>
+    <span class="badge b-warn"><span class="dot" style="background:var(--warning-500)"></span>Hampir limit</span>
+    <span class="badge b-gold"><span class="dot" style="background:var(--gold-500)"></span>Zakat</span>
+    <span class="badge b-gray"><span class="dot" style="background:var(--gray-400)"></span>Draft</span>
+  </div>
+  <div class="row">
+    <span class="tag"><span class="em">🍜</span>Makan</span>
+    <span class="tag"><span class="em">🚌</span>Transport</span>
+    <span class="tag"><span class="em">🏠</span>Rumah</span>
+    <span class="tag"><span class="em">🛒</span>Belanja</span>
+    <span class="tag"><span class="em">💸</span>Tagihan</span>
+    <span class="tag"><span class="em">🤲</span>Sedekah</span>
+  </div>
+</body></html>

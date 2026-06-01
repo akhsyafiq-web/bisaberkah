@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body{margin:0;padding:22px;background:#fff;font-family:var(--font-sans);display:flex;gap:26px;align-items:center}
+  .name{position:absolute;top:12px;left:22px;font-weight:700;font-size:14px;color:var(--text-primary)}
+  .col{display:flex;flex-direction:column;gap:12px}
+  .fi{width:44px;height:44px;border-radius:12px;display:grid;place-items:center}
+  .firow{display:flex;gap:12px;margin-top:8px}
+  .fi svg{width:22px;height:22px}
+  /* goal card */
+  .goal{width:300px;background:#fff;border:1px solid var(--border-secondary);border-radius:var(--radius-2xl);box-shadow:var(--shadow-sm);padding:16px}
+  .goal .h{display:flex;align-items:center;gap:10px}
+  .goal .t{font-weight:700;font-size:15px;color:var(--text-primary)}
+  .goal .s{font-size:12px;color:var(--text-tertiary)}
+  .bar{height:8px;border-radius:99px;background:var(--gray-100);margin:14px 0 8px;overflow:hidden}
+  .fill{height:100%;width:68%;border-radius:99px;background:linear-gradient(90deg,var(--brand-500),var(--brand-600))}
+  .nums{display:flex;justify-content:space-between;font-variant-numeric:tabular-nums}
+  .nums b{font-weight:700;color:var(--text-primary)}
+  .nums span{font-size:13px;color:var(--text-tertiary)}
+</style></head>
+<body>
+  <div class="name">Featured icons · goal progress</div>
+  <div class="col">
+    <div class="firow">
+      <div class="fi" style="background:var(--brand-50);color:var(--brand-600)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
+      <div class="fi" style="background:var(--brand-50);color:var(--brand-600)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M21 7v6h-6"/></svg></div>
+      <div class="fi" style="background:var(--gold-50);color:var(--gold-600)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 15h2a2 2 0 1 0 0-4h-3c-.6 0-1.1.2-1.4.6L3 17"/><path d="m7 21 1.6-1.4c.3-.4.8-.6 1.4-.6h4c1.1 0 2.1-.4 2.8-1.2l4.6-4.4a2 2 0 0 0-2.75-2.91l-4.2 3.9"/><path d="m2 16 6 6"/></svg></div>
+    </div>
+    <div style="font-size:11px;color:var(--text-tertiary);font-family:var(--font-mono)">brand-50 · gold-50 tiles</div>
+  </div>
+  <div class="goal">
+    <div class="h"><div class="fi" style="background:var(--gold-50);color:var(--gold-600);width:40px;height:40px">🕋</div><div><div class="t">Umrah 2026</div><div class="s">Target Desember</div></div></div>
+    <div class="bar"><div class="fill"></div></div>
+    <div class="nums"><span><b>Rp34jt</b> terkumpul</span><span>dari Rp50jt</span></div>
+  </div>
+</body></html>

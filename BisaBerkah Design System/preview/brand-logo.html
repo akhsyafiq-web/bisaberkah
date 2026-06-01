@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body{margin:0;padding:24px;background:#fff;font-family:var(--font-sans)}
+  .name{font-weight:700;font-size:14px;color:var(--text-primary);margin-bottom:18px}
+  .grid{display:flex;gap:20px;align-items:stretch;flex-wrap:wrap}
+  .tile{flex:1;min-width:150px;border:1px solid var(--border-secondary);border-radius:var(--radius-xl);
+        padding:22px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px}
+  .dark{background:var(--brand-900);border-color:var(--brand-900)}
+  .lab{font-size:11px;color:var(--text-tertiary);font-family:var(--font-mono)}
+  .dark .lab{color:rgba(255,255,255,.6)}
+  img{display:block}
+</style></head>
+<body>
+  <div class="name">Logo · lockups</div>
+  <div class="grid">
+    <div class="tile"><img src="../assets/logo-wordmark.svg" width="180" alt="BisaBerkah wordmark"><span class="lab">wordmark · primary</span></div>
+    <div class="tile"><img src="../assets/logo-mark.svg" width="64" alt="BisaBerkah mark"><span class="lab">app mark</span></div>
+    <div class="tile dark"><div style="color:#fff"><img src="../assets/logo-mark-mono.svg" width="56" alt="mono mark"></div><span class="lab">mono · on brand</span></div>
+  </div>
+</body></html>

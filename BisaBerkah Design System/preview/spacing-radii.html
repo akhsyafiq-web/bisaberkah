@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body{margin:0;padding:24px;background:#fff;font-family:var(--font-sans)}
+  .name{font-weight:700;font-size:15px;color:var(--text-primary);margin-bottom:18px}
+  .grid{display:flex;gap:18px;align-items:flex-end;flex-wrap:wrap}
+  .box{background:var(--brand-50);border:1.5px solid var(--brand-300)}
+  .lab{font-size:11px;color:var(--text-tertiary);margin-top:8px;text-align:center;font-family:var(--font-mono)}
+  .cell{display:flex;flex-direction:column;align-items:center}
+</style></head>
+<body>
+  <div class="name">Corner radius</div>
+  <div class="grid">
+    <div class="cell"><div class="box" style="width:72px;height:56px;border-radius:var(--radius-xs)"></div><div class="lab">xs 4</div></div>
+    <div class="cell"><div class="box" style="width:72px;height:56px;border-radius:var(--radius-sm)"></div><div class="lab">sm 6</div></div>
+    <div class="cell"><div class="box" style="width:72px;height:56px;border-radius:var(--radius-md)"></div><div class="lab">md 8 · inputs</div></div>
+    <div class="cell"><div class="box" style="width:72px;height:56px;border-radius:var(--radius-xl)"></div><div class="lab">xl 12 · cards</div></div>
+    <div class="cell"><div class="box" style="width:72px;height:56px;border-radius:var(--radius-2xl)"></div><div class="lab">2xl 16</div></div>
+    <div class="cell"><div class="box" style="width:72px;height:56px;border-radius:var(--radius-3xl)"></div><div class="lab">3xl 24 · balance</div></div>
+    <div class="cell"><div class="box" style="width:56px;height:56px;border-radius:var(--radius-full)"></div><div class="lab">full · pills</div></div>
+  </div>
+</body></html>

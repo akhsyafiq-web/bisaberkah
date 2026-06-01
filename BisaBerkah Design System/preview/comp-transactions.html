@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body{margin:0;padding:20px;background:var(--gray-50);font-family:var(--font-sans)}
+  .name{font-weight:700;font-size:15px;color:var(--text-primary);margin-bottom:14px}
+  .card{background:#fff;border:1px solid var(--border-secondary);border-radius:var(--radius-2xl);box-shadow:var(--shadow-sm);overflow:hidden}
+  .trx{display:flex;align-items:center;gap:13px;padding:13px 16px;border-bottom:1px solid var(--gray-100)}
+  .trx:last-child{border:0}
+  .ico{width:42px;height:42px;border-radius:var(--radius-full);display:grid;place-items:center;font-size:19px;flex:none}
+  .mid{flex:1;min-width:0}
+  .t1{font-weight:600;font-size:15px;color:var(--text-primary)}
+  .t2{font-size:13px;color:var(--text-tertiary);margin-top:1px}
+  .amt{font-weight:700;font-variant-numeric:tabular-nums;font-size:15px;letter-spacing:-.01em}
+</style></head>
+<body>
+  <div class="name">Transaction list (card)</div>
+  <div class="card">
+    <div class="trx"><div class="ico" style="background:var(--success-50)">🍜</div><div class="mid"><div class="t1">Warung Tegal</div><div class="t2">Makan · hari ini, 12:30</div></div><div class="amt" style="color:var(--text-primary)">−Rp28.000</div></div>
+    <div class="trx"><div class="ico" style="background:var(--success-50)">💼</div><div class="mid"><div class="t1">Gaji Mei</div><div class="t2">Pemasukan · 25 Mei</div></div><div class="amt" style="color:var(--money-in)">+Rp8.500.000</div></div>
+    <div class="trx"><div class="ico" style="background:var(--gold-50)">🤲</div><div class="mid"><div class="t1">Zakat penghasilan</div><div class="t2">Zakat · 25 Mei</div></div><div class="amt" style="color:var(--money-zakat)">Rp212.500</div></div>
+    <div class="trx"><div class="ico" style="background:var(--info-50)">🚌</div><div class="mid"><div class="t1">TransJakarta</div><div class="t2">Transport · kemarin</div></div><div class="amt" style="color:var(--text-primary)">−Rp3.500</div></div>
+  </div>
+</body></html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body{margin:0;padding:20px;background:#fff;font-family:var(--font-sans)}
+  .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+  .col h4{margin:0 0 8px;font-size:13px;font-weight:700;color:var(--text-primary)}
+  .stack{border-radius:var(--radius-md);overflow:hidden;border:1px solid var(--border-secondary)}
+  .b{height:34px;display:flex;align-items:center;padding:0 10px;font-size:11px;font-weight:600;font-variant-numeric:tabular-nums}
+  .name{font-weight:700;font-size:15px;color:var(--text-primary);margin-bottom:14px}
+</style></head>
+<body>
+  <div class="name">Semantic colors</div>
+  <div class="grid">
+    <div class="col"><h4 style="color:var(--success-700)">Success</h4><div class="stack">
+      <div class="b" style="background:var(--success-50);color:var(--success-700)">50</div>
+      <div class="b" style="background:var(--success-500);color:#fff">500</div>
+      <div class="b" style="background:var(--success-600);color:#fff">600 · money-in</div>
+      <div class="b" style="background:var(--success-700);color:#fff">700</div></div></div>
+    <div class="col"><h4 style="color:var(--error-700)">Error</h4><div class="stack">
+      <div class="b" style="background:var(--error-50);color:var(--error-700)">50</div>
+      <div class="b" style="background:var(--error-500);color:#fff">500</div>
+      <div class="b" style="background:var(--error-600);color:#fff">600 · validation</div>
+      <div class="b" style="background:var(--error-700);color:#fff">700</div></div></div>
+    <div class="col"><h4 style="color:var(--warning-700)">Warning</h4><div class="stack">
+      <div class="b" style="background:var(--warning-50);color:var(--warning-700)">50</div>
+      <div class="b" style="background:var(--warning-500);color:#fff">500</div>
+      <div class="b" style="background:var(--warning-600);color:#fff">600 · over budget</div>
+      <div class="b" style="background:var(--warning-700);color:#fff">700</div></div></div>
+    <div class="col"><h4 style="color:var(--info-700)">Info</h4><div class="stack">
+      <div class="b" style="background:var(--info-50);color:var(--info-700)">50</div>
+      <div class="b" style="background:var(--info-500);color:#fff">500</div>
+      <div class="b" style="background:var(--info-600);color:#fff">600 · tips</div>
+      <div class="b" style="background:var(--info-700);color:#fff">700</div></div></div>
+  </div>
+</body></html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body{margin:0;padding:28px 24px;background:#fff;font-family:var(--font-sans)}
+  .name{font-weight:700;font-size:15px;color:var(--text-primary);margin-bottom:24px}
+  .grid{display:flex;gap:26px;flex-wrap:wrap}
+  .cell{display:flex;flex-direction:column;align-items:center}
+  .box{width:104px;height:72px;background:#fff;border-radius:var(--radius-xl);border:1px solid var(--border-secondary)}
+  .lab{font-size:11px;color:var(--text-tertiary);margin-top:14px;font-family:var(--font-mono)}
+</style></head>
+<body>
+  <div class="name">Elevation · shadows</div>
+  <div class="grid">
+    <div class="cell"><div class="box" style="box-shadow:var(--shadow-xs)"></div><div class="lab">xs · inputs</div></div>
+    <div class="cell"><div class="box" style="box-shadow:var(--shadow-sm)"></div><div class="lab">sm · cards</div></div>
+    <div class="cell"><div class="box" style="box-shadow:var(--shadow-md)"></div><div class="lab">md · hover</div></div>
+    <div class="cell"><div class="box" style="box-shadow:var(--shadow-lg)"></div><div class="lab">lg · sheets</div></div>
+    <div class="cell"><div class="box" style="box-shadow:var(--shadow-xl)"></div><div class="lab">xl · modals</div></div>
+    <div class="cell"><div class="box" style="box-shadow:var(--shadow-brand);background:var(--brand-600);border:0"></div><div class="lab">brand · glow</div></div>
+  </div>
+</body></html>

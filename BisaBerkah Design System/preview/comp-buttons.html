@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body{margin:0;padding:24px;background:#fff;font-family:var(--font-sans)}
+  .name{font-weight:700;font-size:15px;color:var(--text-primary);margin-bottom:16px}
+  .row{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-bottom:14px}
+  .btn{display:inline-flex;align-items:center;gap:8px;font-family:var(--font-sans);font-weight:600;font-size:15px;
+       padding:10px 18px;border-radius:var(--radius-md);border:1px solid transparent;cursor:pointer;line-height:1}
+  .primary{background:var(--brand-600);color:#fff;box-shadow:var(--shadow-xs)}
+  .primary.hover{background:var(--brand-700)}
+  .primary.press{background:var(--brand-800);transform:scale(.98)}
+  .secondary{background:#fff;color:var(--gray-700);border-color:var(--border-primary);box-shadow:var(--shadow-xs)}
+  .ghost{background:transparent;color:var(--brand-700)}
+  .gold{background:var(--gold-500);color:#fff;box-shadow:var(--shadow-xs)}
+  .disabled{background:var(--gray-100);color:var(--text-disabled);box-shadow:none;cursor:not-allowed}
+  .sm{padding:7px 13px;font-size:13px}
+  .lg{padding:13px 22px;font-size:16px}
+  .lab{font-size:11px;color:var(--text-tertiary);font-family:var(--font-mono);margin-left:6px}
+  svg{width:18px;height:18px}
+</style></head>
+<body>
+  <div class="name">Buttons</div>
+  <div class="row">
+    <button class="btn primary"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>Tambah transaksi</button>
+    <button class="btn secondary">Lihat semua</button>
+    <button class="btn ghost">Batal</button>
+    <button class="btn gold"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 15h2a2 2 0 1 0 0-4h-3c-.6 0-1.1.2-1.4.6L3 17"/><path d="m7 21 1.6-1.4c.3-.4.8-.6 1.4-.6h4c1.1 0 2.1-.4 2.8-1.2l4.6-4.4a2 2 0 0 0-2.75-2.91l-4.2 3.9"/><path d="m2 16 6 6"/></svg>Bayar zakat</button>
+  </div>
+  <div class="row">
+    <button class="btn primary">Default</button>
+    <button class="btn primary hover">Hover</button>
+    <button class="btn primary press">Press</button>
+    <button class="btn disabled">Disabled</button>
+  </div>
+  <div class="row">
+    <button class="btn primary sm">Small</button>
+    <button class="btn primary">Medium</button>
+    <button class="btn primary lg">Large</button>
+  </div>
+</body></html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body{margin:0;padding:24px;background:var(--gray-50);font-family:var(--font-sans);display:flex;gap:24px;align-items:center}
+  .name{position:absolute;top:14px;left:24px;font-weight:700;font-size:14px;color:var(--text-primary)}
+  /* Untitled UI CreditCard — gradient-strip variant, re-skinned jade */
+  .cc{position:relative;width:360px;aspect-ratio:1.586/1;border-radius:20px;overflow:hidden;
+      background:var(--brand-800);box-shadow:var(--shadow-brand);color:#fff;padding:20px 22px;box-sizing:border-box}
+  /* the diagonal gradient strip */
+  .cc::before{content:"";position:absolute;inset:0;background:
+      linear-gradient(115deg,transparent 0%,transparent 30%,rgba(34,185,129,.55) 46%,rgba(14,159,110,.30) 60%,transparent 72%);}
+  .cc::after{content:"";position:absolute;right:-40px;top:-40px;width:180px;height:180px;border-radius:50%;
+      background:radial-gradient(circle,rgba(79,211,160,.35),transparent 70%)}
+  .cc>*{position:relative}
+  .cc .top{display:flex;justify-content:space-between;align-items:flex-start}
+  .cc .brandrow{display:flex;align-items:center;gap:8px;font-weight:800;font-size:15px;letter-spacing:-.01em}
+  .chip{margin-top:30px;width:40px;height:30px;border-radius:6px;background:linear-gradient(135deg,#F2C14E,#D6900F)}
+  .lbl{font-size:11px;opacity:.82;margin-top:18px;letter-spacing:.02em}
+  .bal{font-weight:800;font-size:30px;font-variant-numeric:tabular-nums;letter-spacing:-.02em;margin-top:2px}
+  .foot{display:flex;justify-content:space-between;align-items:flex-end;margin-top:14px;font-size:12px}
+  .foot .h{opacity:.82}
+  .legend{font-size:12px;color:var(--text-secondary);max-width:230px;line-height:1.6}
+  .legend b{color:var(--text-primary)}
+</style></head>
+<body>
+  <div class="name">Balance card · gradient-strip</div>
+  <div class="cc">
+    <div class="top">
+      <div class="brandrow">
+        <svg width="22" height="22" viewBox="0 0 96 96" style="color:#fff" aria-hidden="true"><path d="M48 70V44" stroke="currentColor" stroke-width="7" stroke-linecap="round"/><path d="M48 47C48 38 41 30 30 29C29 40 37 48 48 47Z" fill="currentColor"/><path d="M48 41C48 33 54 26 64 25C65 35 58 42 48 41Z" fill="currentColor" opacity=".55"/><circle cx="64" cy="62" r="9" fill="currentColor"/></svg>
+        BisaBerkah
+      </div>
+      <span style="font-size:12px;opacity:.82">Keluarga Pratama</span>
+    </div>
+    <div class="chip"></div>
+    <div class="lbl">Total saldo keluarga</div>
+    <div class="bal">Rp24.500.000</div>
+    <div class="foot"><span class="h">•••• rekening &amp; e-wallet</span><span class="h">Mei 2026</span></div>
+  </div>
+  <div class="legend">Recreates <b>Untitled UI</b>'s <b>&lt;CreditCard type="gradient-strip" /&gt;</b> — solid jade field with a diagonal sheen strip. Used as the hero on the app dashboard (it's a balance card, not a payment card).</div>
+</body></html>

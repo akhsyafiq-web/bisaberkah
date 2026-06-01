@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body{margin:0;padding:20px;background:#fff;font-family:var(--font-sans)}
+  .ramp{display:grid;grid-template-columns:repeat(13,1fr);gap:0;border-radius:var(--radius-lg);overflow:hidden;border:1px solid var(--border-secondary)}
+  .sw{height:64px;display:flex;align-items:flex-end;padding:5px 6px}
+  .sw span{font-size:10px;font-weight:600;font-variant-numeric:tabular-nums}
+  .row{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:10px}
+  .name{font-weight:700;font-size:15px;color:var(--text-primary)}
+  .meta{font-size:12px;color:var(--text-tertiary)}
+  .keys{display:flex;gap:16px;margin-top:12px;font-size:12px;color:var(--text-secondary)}
+  .dot{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:middle;border:1px solid var(--border-secondary)}
+</style></head>
+<body>
+  <div class="row"><div class="name">Neutrals — Gray</div><div class="meta">Untitled UI cool-gray ramp · text · borders · surfaces</div></div>
+  <div class="ramp">
+    <div class="sw" style="background:var(--gray-25)"><span style="color:#344054">25</span></div>
+    <div class="sw" style="background:var(--gray-50)"><span style="color:#344054">50</span></div>
+    <div class="sw" style="background:var(--gray-100)"><span style="color:#344054">100</span></div>
+    <div class="sw" style="background:var(--gray-200)"><span style="color:#344054">200</span></div>
+    <div class="sw" style="background:var(--gray-300)"><span style="color:#344054">300</span></div>
+    <div class="sw" style="background:var(--gray-400)"><span style="color:#fff">400</span></div>
+    <div class="sw" style="background:var(--gray-500)"><span style="color:#fff">500</span></div>
+    <div class="sw" style="background:var(--gray-600)"><span style="color:#fff">600</span></div>
+    <div class="sw" style="background:var(--gray-700)"><span style="color:#fff">700</span></div>
+    <div class="sw" style="background:var(--gray-800)"><span style="color:#fff">800</span></div>
+    <div class="sw" style="background:var(--gray-900)"><span style="color:#fff">900</span></div>
+    <div class="sw" style="background:var(--gray-950)"><span style="color:#fff">950</span></div>
+    <div class="sw" style="background:#fff;border-left:1px solid var(--border-secondary)"><span style="color:#475467">#fff</span></div>
+  </div>
+  <div class="keys">
+    <span><span class="dot" style="background:var(--gray-900)"></span>900 — primary text</span>
+    <span><span class="dot" style="background:var(--gray-700)"></span>700 — body</span>
+    <span><span class="dot" style="background:var(--gray-500)"></span>500 — metadata</span>
+    <span><span class="dot" style="background:var(--gray-200)"></span>200 — borders</span>
+    <span><span class="dot" style="background:var(--gray-50)"></span>50 — canvas</span>
+  </div>
+</body></html>

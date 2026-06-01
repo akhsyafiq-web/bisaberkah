@@ -1,26 +1,240 @@
 @import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@custom-variant dark (&:is(.dark *));
+
+/* ── Plus Jakarta Sans — CSS @font-face fallback ────────────────────── */
+/* next/font/local handles preloading + optimization (src/fonts/).       */
+/* These @font-face blocks ensure the font works even if the JS variable */
+/* injection hasn't run yet, and act as the CSS-level fallback.          */
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  src: url('/fonts/PlusJakartaSans-VariableFont_wght.ttf') format('truetype');
+  font-weight: 200 800;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  src: url('/fonts/PlusJakartaSans-Italic-VariableFont_wght.ttf') format('truetype');
+  font-weight: 200 800;
+  font-style: italic;
+  font-display: swap;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+  --font-heading: 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+  /* BisaBerkah semantic color utilities */
+  --color-income: var(--income-color);
+  --color-expense: var(--expense-color);
+  --color-amal: var(--amal-color);
+  --color-zakat: var(--zakat-color);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+:root {
+  /* ── BisaBerkah Design Token Palette ────────────────────────────────── */
+
+  /* Brand — "Berkah Green" (jade/emerald) */
+  --brand-25:  #F2FCF8;
+  --brand-50:  #E3FAF0;
+  --brand-100: #BFF2DC;
+  --brand-200: #8AE6C1;
+  --brand-300: #4FD3A0;
+  --brand-400: #22B981;
+  --brand-500: #0E9F6E;
+  --brand-600: #07835A;   /* PRIMARY */
+  --brand-700: #086848;
+  --brand-800: #09533B;
+  --brand-900: #093F2E;
+  --brand-950: #04261C;
+
+  /* Accent — "Barakah Gold" (zakat / sadaqah / milestones) */
+  --gold-50:  #FFF6DB;
+  --gold-100: #FCEBB3;
+  --gold-300: #F2C14E;
+  --gold-500: #D6900F;
+  --gold-600: #B57108;
+  --gold-700: #91560B;
+
+  /* Gray — Untitled UI cool-gray ramp */
+  --gray-25:  #FCFCFD;
+  --gray-50:  #F9FAFB;
+  --gray-100: #F2F4F7;
+  --gray-200: #EAECF0;
+  --gray-300: #D0D5DD;
+  --gray-400: #98A2B3;
+  --gray-500: #667085;
+  --gray-600: #475467;
+  --gray-700: #344054;
+  --gray-800: #182230;
+  --gray-900: #101828;
+  --gray-950: #0C111D;
+
+  /* Semantic */
+  --success-50:  #ECFDF3;
+  --success-600: #079455;
+  --success-700: #067647;
+  --error-50:    #FEF3F2;
+  --error-600:   #D92D20;
+  --warning-50:  #FFFAEB;
+  --warning-500: #F79009;
+  --info-50:     #EFF8FF;
+  --info-600:    #1570EF;
+
+  /* ── Shadcn/Tailwind CSS variable mapping ────────────────────────────── */
+  --background: oklch(0.985 0.002 248);       /* gray-50 #F9FAFB — app canvas */
+  --foreground: oklch(0.144 0.007 254);        /* gray-900 #101828 */
+  --card: oklch(1 0 0);                        /* white cards */
+  --card-foreground: oklch(0.144 0.007 254);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.144 0.007 254);
+  --primary: oklch(0.519 0.137 162);           /* brand-600 #07835A — jade primary */
+  --primary-foreground: oklch(1 0 0);
+  --secondary: oklch(0.96 0.005 248);          /* gray-100 #F2F4F7 */
+  --secondary-foreground: oklch(0.28 0.01 254);
+  --muted: oklch(0.96 0.005 248);              /* gray-100 */
+  --muted-foreground: oklch(0.503 0.014 254);  /* gray-500 #667085 */
+  --accent: oklch(0.967 0.030 162);            /* brand-50 #E3FAF0 */
+  --accent-foreground: oklch(0.42 0.10 162);   /* brand-700 */
+  --destructive: oklch(0.559 0.215 27);        /* error-600 #D92D20 */
+  --border: oklch(0.907 0.008 248);            /* gray-200 #EAECF0 */
+  --input: oklch(0.840 0.015 248);             /* gray-300 #D0D5DD */
+  --ring: oklch(0.519 0.137 162);              /* brand-600 focus ring */
+  /* chart colors */
+  --chart-1: oklch(0.57 0.16 160);            /* success-600 #079455 */
+  --chart-2: oklch(0.567 0.143 64);           /* gold-600 #B57108 */
+  --chart-3: oklch(0.519 0.137 162);          /* brand-600 */
+  --chart-4: oklch(0.55 0.16 230);
+  --chart-5: oklch(0.65 0.18 60);
+  --radius: 0.625rem;
+  /* Sidebar (reuse brand) */
+  --sidebar: oklch(1 0 0);
+  --sidebar-foreground: oklch(0.144 0.007 254);
+  --sidebar-primary: oklch(0.519 0.137 162);
+  --sidebar-primary-foreground: oklch(1 0 0);
+  --sidebar-accent: oklch(0.967 0.030 162);
+  --sidebar-accent-foreground: oklch(0.42 0.10 162);
+  --sidebar-border: oklch(0.907 0.008 248);
+  --sidebar-ring: oklch(0.519 0.137 162);
+
+  /* ── BisaBerkah semantic tokens (used in components directly) ─────── */
+  /* Money-in: success green — positive & celebratory */
+  --income-color: #079455;
+  /* Money-out: neutral dark — never alarmist red per design system */
+  --expense-color: #101828;
+  /* Amal / zakat / sadaqah: Barakah Gold */
+  --amal-color: #B57108;
+  --zakat-color: #D6900F;
+
+  /* Elevation — Untitled UI soft layered shadows */
+  --shadow-xs: 0 1px 2px rgba(16,24,40,0.05);
+  --shadow-sm: 0 1px 3px rgba(16,24,40,0.10), 0 1px 2px rgba(16,24,40,0.06);
+  --shadow-md: 0 4px 8px -2px rgba(16,24,40,0.10), 0 2px 4px -2px rgba(16,24,40,0.06);
+  --shadow-lg: 0 12px 16px -4px rgba(16,24,40,0.08), 0 4px 6px -2px rgba(16,24,40,0.03);
+  --shadow-brand: 0 12px 24px -6px rgba(7,131,90,0.30);
+}
+
+.dark {
+  --background: oklch(0.144 0.007 254);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.205 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.205 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.57 0.137 162);
+  --primary-foreground: oklch(1 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.65 0 0);
+  --accent: oklch(0.27 0.06 162);
+  --accent-foreground: oklch(0.76 0.137 162);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.57 0.137 162);
+  --chart-1: oklch(0.65 0.16 160);
+  --chart-2: oklch(0.65 0.14 64);
+  --chart-3: oklch(0.57 0.137 162);
+  --chart-4: oklch(0.62 0.16 230);
+  --chart-5: oklch(0.72 0.18 60);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.57 0.137 162);
+  --sidebar-primary-foreground: oklch(1 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.57 0.137 162);
+  --income-color: #4FD3A0;
+  --expense-color: #EAECF0;
+  --amal-color: #F2C14E;
+  --zakat-color: #F2C14E;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
   }
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  html, body {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "cv11", "ss01";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-tap-highlight-color: transparent;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  /* Tabular figures for all monetary text */
+  .tabular-nums {
+    font-variant-numeric: tabular-nums;
+  }
+  /* Hide scrollbar utility */
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 }

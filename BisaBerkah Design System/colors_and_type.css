@@ -1,0 +1,245 @@
+/* ============================================================================
+   BisaBerkah — Design Tokens
+   Color + Type foundations. Built on the Untitled UI token architecture
+   (gray scale, 25–950 ramps, semantic colors) re-skinned for BisaBerkah:
+   a jade/emerald brand ("Berkah Green") + a warm gold accent for zakat &
+   sadaqah ("Barakah Gold"). Untitled UI ships with Inter; BisaBerkah brands
+   with Plus Jakarta Sans (designed in & for Jakarta — fitting for an
+   Indonesian product, and friendlier/rounder for a Gen-Z audience).
+   ============================================================================ */
+
+/* Plus Jakarta Sans — self-hosted brand font (variable, weights 200–800).
+   JetBrains Mono stays on Google Fonts CDN (no local files supplied). */
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap');
+
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  src: url('fonts/PlusJakartaSans-VariableFont_wght.ttf') format('truetype-variations'),
+       url('fonts/PlusJakartaSans-VariableFont_wght.ttf') format('truetype');
+  font-weight: 200 800;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  src: url('fonts/PlusJakartaSans-Italic-VariableFont_wght.ttf') format('truetype-variations'),
+       url('fonts/PlusJakartaSans-Italic-VariableFont_wght.ttf') format('truetype');
+  font-weight: 200 800;
+  font-style: italic;
+  font-display: swap;
+}
+
+:root {
+  /* ---------------------------------------------------------------------
+     PALETTE — raw ramps. Never hardcode hex in product code; use these.
+     --------------------------------------------------------------------- */
+
+  /* Brand — "Berkah Green" (jade / emerald). Growth, money, blessing. */
+  --brand-25:  #F2FCF8;
+  --brand-50:  #E3FAF0;
+  --brand-100: #BFF2DC;
+  --brand-200: #8AE6C1;
+  --brand-300: #4FD3A0;
+  --brand-400: #22B981;
+  --brand-500: #0E9F6E;
+  --brand-600: #07835A;  /* PRIMARY — buttons, key actions, brand fills */
+  --brand-700: #086848;
+  --brand-800: #09533B;
+  --brand-900: #093F2E;
+  --brand-950: #04261C;
+
+  /* Accent — "Barakah Gold". Reserved for zakat, sadaqah, alms, milestones. */
+  --gold-25:  #FFFBF0;
+  --gold-50:  #FFF6DB;
+  --gold-100: #FCEBB3;
+  --gold-200: #F8D982;
+  --gold-300: #F2C14E;
+  --gold-400: #E8A92A;
+  --gold-500: #D6900F;  /* ACCENT */
+  --gold-600: #B57108;
+  --gold-700: #91560B;
+  --gold-800: #76450F;
+  --gold-900: #623A11;
+
+  /* Gray — cool neutrals (Untitled UI gray ramp). Text, borders, surfaces. */
+  --gray-25:  #FCFCFD;
+  --gray-50:  #F9FAFB;
+  --gray-100: #F2F4F7;
+  --gray-200: #EAECF0;
+  --gray-300: #D0D5DD;
+  --gray-400: #98A2B3;
+  --gray-500: #667085;
+  --gray-600: #475467;
+  --gray-700: #344054;
+  --gray-800: #182230;
+  --gray-900: #101828;
+  --gray-950: #0C111D;
+
+  /* Semantic — Success / Error / Warning / Info */
+  --success-50:  #ECFDF3;
+  --success-100: #DCFAE6;
+  --success-500: #17B26A;
+  --success-600: #079455;
+  --success-700: #067647;
+
+  --error-50:  #FEF3F2;
+  --error-100: #FEE4E2;
+  --error-500: #F04438;
+  --error-600: #D92D20;
+  --error-700: #B42318;
+
+  --warning-50:  #FFFAEB;
+  --warning-100: #FEF0C7;
+  --warning-500: #F79009;
+  --warning-600: #DC6803;
+  --warning-700: #B54708;
+
+  --info-50:  #EFF8FF;
+  --info-100: #D1E9FF;
+  --info-500: #2E90FA;
+  --info-600: #1570EF;
+  --info-700: #175CD3;
+
+  /* ---------------------------------------------------------------------
+     SEMANTIC TOKENS — what product code should actually reference.
+     --------------------------------------------------------------------- */
+
+  /* Text */
+  --text-primary:    var(--gray-900);   /* headings, balances, primary copy */
+  --text-secondary:  var(--gray-700);   /* secondary labels */
+  --text-tertiary:   var(--gray-500);   /* supporting / metadata */
+  --text-placeholder:var(--gray-400);
+  --text-disabled:   var(--gray-300);
+  --text-on-brand:   #FFFFFF;
+  --text-brand:      var(--brand-700);  /* brand-colored text/links */
+  --text-error:      var(--error-600);
+  --text-success:    var(--success-700);
+
+  /* Surfaces / backgrounds */
+  --bg-primary:      #FFFFFF;           /* cards, sheets */
+  --bg-secondary:    var(--gray-50);    /* app canvas behind cards */
+  --bg-tertiary:     var(--gray-100);   /* subtle fills, hover rows */
+  --bg-brand-subtle: var(--brand-50);   /* tinted brand surface */
+  --bg-gold-subtle:  var(--gold-50);
+  --bg-canvas:       var(--gray-50);
+
+  /* Borders */
+  --border-primary:   var(--gray-300);  /* inputs, dividers w/ emphasis */
+  --border-secondary: var(--gray-200);  /* default card & row borders */
+  --border-brand:     var(--brand-300);
+
+  /* Brand fills */
+  --fill-brand:        var(--brand-600);
+  --fill-brand-hover:  var(--brand-700);
+  --fill-brand-press:  var(--brand-800);
+
+  /* Money semantics (Gen-Z budgeting: green in, red out) */
+  --money-in:   var(--success-600);
+  --money-out:  var(--gray-900);        /* expenses render neutral-dark, not alarmist red */
+  --money-zakat:var(--gold-600);
+
+  /* ---------------------------------------------------------------------
+     TYPE — families, base scale (Untitled UI display/text scale) & weights
+     --------------------------------------------------------------------- */
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+  /* Numbers reuse --font-sans with `font-variant-numeric: tabular-nums` */
+
+  --fw-regular: 400;
+  --fw-medium:  500;
+  --fw-semibold:600;
+  --fw-bold:    700;
+  --fw-extra:   800;
+
+  /* Display + text ramp (px / line-height / tracking) — Untitled UI scale */
+  --display-2xl: 4.5rem;   /* 72 */
+  --display-xl:  3.75rem;  /* 60 */
+  --display-lg:  3rem;     /* 48 */
+  --display-md:  2.25rem;  /* 36 */
+  --display-sm:  1.875rem; /* 30 */
+  --display-xs:  1.5rem;   /* 24 */
+  --text-xl:     1.25rem;  /* 20 */
+  --text-lg:     1.125rem; /* 18 */
+  --text-md:     1rem;     /* 16 */
+  --text-sm:     0.875rem; /* 14 */
+  --text-xs:     0.75rem;  /* 12 */
+
+  /* ---------------------------------------------------------------------
+     RADIUS / SPACING / SHADOW (Untitled UI scale)
+     --------------------------------------------------------------------- */
+  --radius-xs: 4px;
+  --radius-sm: 6px;
+  --radius-md: 8px;    /* default buttons, inputs */
+  --radius-lg: 10px;
+  --radius-xl: 12px;   /* cards */
+  --radius-2xl:16px;   /* large cards, sheets */
+  --radius-3xl:24px;   /* balance card, hero surfaces */
+  --radius-full: 9999px;
+
+  /* 4px base spacing scale */
+  --space-1: 4px;   --space-2: 8px;   --space-3: 12px;  --space-4: 16px;
+  --space-5: 20px;  --space-6: 24px;  --space-8: 32px;  --space-10: 40px;
+  --space-12: 48px; --space-16: 64px; --space-20: 80px; --space-24: 96px;
+
+  /* Soft, layered shadows (Untitled UI elevation) */
+  --shadow-xs: 0 1px 2px rgba(16,24,40,0.05);
+  --shadow-sm: 0 1px 3px rgba(16,24,40,0.10), 0 1px 2px rgba(16,24,40,0.06);
+  --shadow-md: 0 4px 8px -2px rgba(16,24,40,0.10), 0 2px 4px -2px rgba(16,24,40,0.06);
+  --shadow-lg: 0 12px 16px -4px rgba(16,24,40,0.08), 0 4px 6px -2px rgba(16,24,40,0.03);
+  --shadow-xl: 0 20px 24px -4px rgba(16,24,40,0.08), 0 8px 8px -4px rgba(16,24,40,0.03);
+  /* Brand-tinted glow for the balance / CTA surfaces */
+  --shadow-brand: 0 12px 24px -6px rgba(7,131,90,0.30);
+}
+
+/* ============================================================================
+   SEMANTIC TYPE CLASSES — apply directly in markup
+   ============================================================================ */
+.display-2xl, .display-xl, .display-lg, .display-md, .display-sm, .display-xs {
+  font-family: var(--font-sans);
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+  font-weight: var(--fw-bold);
+  line-height: 1.1;
+}
+.display-2xl { font-size: var(--display-2xl); letter-spacing: -0.03em; }
+.display-xl  { font-size: var(--display-xl);  letter-spacing: -0.03em; }
+.display-lg  { font-size: var(--display-lg); }
+.display-md  { font-size: var(--display-md); }
+.display-sm  { font-size: var(--display-sm); }
+.display-xs  { font-size: var(--display-xs); line-height: 1.25; }
+
+h1, .h1 { font: var(--fw-bold) var(--display-sm)/1.2 var(--font-sans); letter-spacing: -0.02em; color: var(--text-primary); }
+h2, .h2 { font: var(--fw-bold) var(--display-xs)/1.27 var(--font-sans); letter-spacing: -0.01em; color: var(--text-primary); }
+h3, .h3 { font: var(--fw-semibold) var(--text-xl)/1.4 var(--font-sans); color: var(--text-primary); }
+h4, .h4 { font: var(--fw-semibold) var(--text-lg)/1.45 var(--font-sans); color: var(--text-primary); }
+
+.text-lg  { font: var(--fw-regular) var(--text-lg)/1.55 var(--font-sans); color: var(--text-secondary); }
+p, .text-md  { font: var(--fw-regular) var(--text-md)/1.55 var(--font-sans); color: var(--text-secondary); }
+.text-sm  { font: var(--fw-regular) var(--text-sm)/1.43 var(--font-sans); color: var(--text-secondary); }
+.text-xs  { font: var(--fw-regular) var(--text-xs)/1.5 var(--font-sans); color: var(--text-tertiary); }
+
+/* Eyebrow / overline label — small caps tracking */
+.eyebrow {
+  font: var(--fw-semibold) var(--text-sm)/1 var(--font-sans);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-brand);
+}
+
+/* Monetary figures — tabular, tight */
+.amount {
+  font-family: var(--font-sans);
+  font-weight: var(--fw-bold);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+}
+
+code, .code {
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+  background: var(--gray-100);
+  padding: 0.1em 0.35em;
+  border-radius: var(--radius-sm);
+  color: var(--gray-800);
+}

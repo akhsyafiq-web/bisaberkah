@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body{margin:0;padding:24px;background:#fff;font-family:var(--font-sans)}
+  .name{font-weight:700;font-size:14px;color:var(--text-primary)}
+  .sub{font-size:12px;color:var(--text-tertiary);margin:2px 0 18px}
+  .grid{display:grid;grid-template-columns:repeat(8,1fr);gap:16px}
+  .cell{display:flex;flex-direction:column;align-items:center;gap:8px}
+  .cell i{width:26px;height:26px;color:var(--gray-700)}
+  .cell svg{width:26px;height:26px}
+  .cell span{font-size:10px;color:var(--text-tertiary);font-family:var(--font-mono)}
+  .cell.brand i, .cell.brand svg{color:var(--brand-600)}
+  .cell.gold i, .cell.gold svg{color:var(--gold-600)}
+</style></head>
+<body>
+  <div class="name">Iconography · Lucide</div>
+  <div class="sub">outline · ~1.67px stroke · currentColor · closest open match to Untitled UI Icons</div>
+  <div class="grid">
+    <div class="cell brand"><i data-lucide="wallet"></i><span>wallet</span></div>
+    <div class="cell"><i data-lucide="arrow-down-left"></i><span>income</span></div>
+    <div class="cell"><i data-lucide="arrow-up-right"></i><span>expense</span></div>
+    <div class="cell brand"><i data-lucide="target"></i><span>target</span></div>
+    <div class="cell gold"><i data-lucide="hand-coins"></i><span>zakat</span></div>
+    <div class="cell gold"><i data-lucide="heart-handshake"></i><span>sadaqah</span></div>
+    <div class="cell"><i data-lucide="trending-up"></i><span>trending</span></div>
+    <div class="cell"><i data-lucide="chart-pie"></i><span>chart-pie</span></div>
+    <div class="cell"><i data-lucide="house"></i><span>home</span></div>
+    <div class="cell"><i data-lucide="users"></i><span>family</span></div>
+    <div class="cell"><i data-lucide="bell"></i><span>bell</span></div>
+    <div class="cell"><i data-lucide="settings"></i><span>settings</span></div>
+    <div class="cell"><i data-lucide="plus"></i><span>plus</span></div>
+    <div class="cell"><i data-lucide="search"></i><span>search</span></div>
+    <div class="cell"><i data-lucide="calendar"></i><span>calendar</span></div>
+    <div class="cell"><i data-lucide="receipt"></i><span>receipt</span></div>
+  </div>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>lucide.createIcons();</script>
+</body></html>

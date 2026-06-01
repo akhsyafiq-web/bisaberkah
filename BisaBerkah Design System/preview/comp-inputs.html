@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body{margin:0;padding:24px;background:#fff;font-family:var(--font-sans)}
+  .name{font-weight:700;font-size:15px;color:var(--text-primary);margin-bottom:16px}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  label{display:block;font-size:13px;font-weight:600;color:var(--gray-700);margin-bottom:6px}
+  .field{display:flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--border-primary);
+         border-radius:var(--radius-md);padding:10px 12px;box-shadow:var(--shadow-xs);font-size:15px;color:var(--text-primary)}
+  .field.focus{border-color:var(--brand-300);box-shadow:0 0 0 4px rgba(7,131,90,.24)}
+  .field.error{border-color:var(--error-500);box-shadow:0 0 0 4px rgba(240,68,56,.18)}
+  .field .ph{color:var(--text-placeholder)}
+  .pre{color:var(--text-tertiary);font-weight:600}
+  .hint{font-size:12px;margin-top:6px}
+  .err{color:var(--text-error)}
+  svg{width:18px;height:18px;color:var(--gray-400);flex:none}
+</style></head>
+<body>
+  <div class="name">Inputs &amp; fields</div>
+  <div class="grid">
+    <div><label>Jumlah</label><div class="field"><span class="pre">Rp</span><span>185.000</span></div></div>
+    <div><label>Kategori</label><div class="field"><span class="ph">Pilih kategori</span><svg style="margin-left:auto" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></div></div>
+    <div><label>Catatan (focus)</label><div class="field focus"><span>Kopi pagi ☕</span></div></div>
+    <div><label>Email</label><div class="field error"><span>budi@</span></div><div class="hint err">Email belum lengkap</div></div>
+    <div><label>Cari transaksi</label><div class="field"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg><span class="ph">Cari…</span></div></div>
+    <div><label>Tanggal</label><div class="field"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M3 10h18M8 2v4M16 2v4"/></svg><span>29 Mei 2026</span></div></div>
+  </div>
+</body></html>

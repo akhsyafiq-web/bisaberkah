@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { useGoals, calculateGoalStats } from '@/hooks/useGoals'
 import { AddSavingSheet } from './AddSavingSheet'
-import { DeleteConfirmSheet } from '@/components/features/transactions/DeleteConfirmSheet'
+import { AlertDialog } from '@/components/ui/alert-dialog'
 import { formatCurrency } from '@/lib/utils/currency'
 import { formatDate } from '@/lib/utils/date'
 import { cn } from '@/lib/utils/cn'
@@ -152,21 +152,16 @@ export function GoalDetailClient({ goal: initialGoal, householdId, emoji }: Goal
         onSuccess={handleSavingAdded}
       />
 
-      {/* Reuse delete confirm pattern with inline handler */}
-      {deleteOpen && (
-        <div className="fixed inset-0 z-50 flex items-end justify-center bg-black/40" onClick={() => setDeleteOpen(false)}>
-          <div className="w-full max-w-[430px] rounded-t-2xl bg-background p-6 space-y-4" onClick={e => e.stopPropagation()}>
-            <p className="text-base font-semibold">Hapus goal ini?</p>
-            <p className="text-sm text-muted-foreground">Goal dan seluruh riwayat tabungannya akan dihapus permanen.</p>
-            <div className="flex gap-3 pt-2">
-              <Button variant="outline" onClick={() => setDeleteOpen(false)} className="flex-1 h-11">Batal</Button>
-              <Button variant="destructive" onClick={handleDelete} disabled={loading} className="flex-1 h-11">
-                {loading ? 'Menghapus…' : 'Hapus'}
-              </Button>
-            </div>
-          </div>
-        </div>
-      )}
+      <AlertDialog
+        open={deleteOpen}
+        onOpenChange={setDeleteOpen}
+        title="Hapus goal ini?"
+        description="Goal dan seluruh riwayat tabungannya akan dihapus permanen."
+        confirmLabel="Ya, Hapus"
+        confirmVariant="destructive"
+        onConfirm={handleDelete}
+        loading={loading}
+      />
     </div>
   )
 }

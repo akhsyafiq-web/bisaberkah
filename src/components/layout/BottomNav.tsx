@@ -2,15 +2,14 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { House, ChartNoAxesColumn, Plus, Target, HandCoins } from 'lucide-react'
-import { cn } from '@/lib/utils/cn'
+import { House, ChartNoAxesColumn, Plus, Target, User } from 'lucide-react'
 
 const tabs = [
-  { href: '/dashboard', icon: House, label: 'Beranda' },
-  { href: '/reports', icon: ChartNoAxesColumn, label: 'Laporan' },
-  { href: '/transactions/new', icon: Plus, label: 'Tambah', isFab: true },
-  { href: '/goals', icon: Target, label: 'Tujuan' },
-  { href: '/settings', icon: HandCoins, label: 'Zakat' },
+  { href: '/dashboard', icon: House,              label: 'Beranda' },
+  { href: '/reports',   icon: ChartNoAxesColumn,  label: 'Laporan' },
+  { href: '/transactions/new', icon: Plus,        label: 'Tambah', isFab: true },
+  { href: '/goals',     icon: Target,             label: 'Tujuan' },
+  { href: '/settings',  icon: User,               label: 'Akun' },
 ]
 
 export function BottomNav() {
@@ -18,7 +17,7 @@ export function BottomNav() {
 
   return (
     <nav
-      className="fixed bottom-0 left-1/2 z-50 flex w-full max-w-[430px] -translate-x-1/2 items-end justify-around px-4"
+      className="fixed bottom-0 left-1/2 z-40 flex w-full max-w-[430px] -translate-x-1/2 items-end justify-around px-4"
       style={{
         paddingBottom: 'calc(env(safe-area-inset-bottom) + 10px)',
         paddingTop: '8px',

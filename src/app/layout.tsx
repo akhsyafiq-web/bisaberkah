@@ -26,6 +26,16 @@ const plusJakarta = localFont({
 export const metadata: Metadata = {
   title: "BisaBerkah — Catat, Rencanakan, Berkah",
   description: "Aplikasi pencatatan keuangan keluarga yang berkah",
+  manifest: "/manifest.json",
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "default",
+    title: "BisaBerkah",
+  },
+  icons: {
+    icon: "/icons/icon-192.png",
+    apple: "/icons/icon-192.png",
+  },
 };
 
 export const viewport: Viewport = {

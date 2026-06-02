@@ -51,7 +51,17 @@ export function TransactionForm({ householdId, userId, categories, initialValues
   const selectedCategory = watch('category_id')
   const amount = watch('amount')
 
-  const filteredCategories = categories.filter(c => c.type === selectedType)
+  // Respect disabled categories from settings (stored in localStorage)
+  const disabledIds = (() => {
+    try {
+      const raw = typeof window !== 'undefined'
+        ? localStorage.getItem(`bb_disabled_cats_${householdId}`)
+        : null
+      return new Set<string>(raw ? JSON.parse(raw) : [])
+    } catch { return new Set<string>() }
+  })()
+
+  const filteredCategories = categories.filter(c => c.type === selectedType && !disabledIds.has(c.id))
 
   useEffect(() => {
     // reset category when type changes if selected cat doesn't match

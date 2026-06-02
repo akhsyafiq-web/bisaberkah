@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { useDebts } from '@/hooks/useDebts'
 import { PaymentSheet } from './PaymentSheet'
+import { AlertDialog } from '@/components/ui/alert-dialog'
 import { Button } from '@/components/ui/button'
 import { Skeleton } from '@/components/ui/skeleton'
 import { formatCurrency } from '@/lib/utils/currency'
@@ -154,20 +155,16 @@ export function DebtDetailClient({ debt: initialDebt, householdId }: DebtDetailC
         onSuccess={handlePaymentAdded}
       />
 
-      {deleteOpen && (
-        <div className="fixed inset-0 z-50 flex items-end justify-center bg-black/40" onClick={() => setDeleteOpen(false)}>
-          <div className="w-full max-w-[430px] rounded-t-2xl bg-background p-6 space-y-4" onClick={e => e.stopPropagation()}>
-            <p className="text-base font-semibold">Hapus catatan hutang?</p>
-            <p className="text-sm text-muted-foreground">Semua riwayat pembayaran juga akan dihapus.</p>
-            <div className="flex gap-3 pt-2">
-              <Button variant="outline" onClick={() => setDeleteOpen(false)} className="flex-1 h-11">Batal</Button>
-              <Button variant="destructive" onClick={handleDelete} disabled={loading} className="flex-1 h-11">
-                {loading ? 'Menghapus…' : 'Hapus'}
-              </Button>
-            </div>
-          </div>
-        </div>
-      )}
+      <AlertDialog
+        open={deleteOpen}
+        onOpenChange={setDeleteOpen}
+        title="Hapus catatan hutang?"
+        description="Semua riwayat pembayaran juga akan dihapus permanen."
+        confirmLabel="Ya, Hapus"
+        confirmVariant="destructive"
+        onConfirm={handleDelete}
+        loading={loading}
+      />
     </div>
   )
 }

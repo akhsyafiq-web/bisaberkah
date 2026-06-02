@@ -1,4 +1,31 @@
 export type TransactionType = 'income' | 'expense'
+export type PlanBudgetStatus = 'aman' | 'mepet' | 'minus'
+
+export interface PlanBudget {
+  id: string
+  household_id: string
+  user_id: string
+  nama: string
+  nominal_rencana: number
+  bulan: string       // YYYY-MM
+  warna: string | null
+  created_at: string
+  updated_at: string
+}
+
+export interface PlanBudgetUsage {
+  id: string
+  budget_id: string
+  transaksi_id: string
+  nominal: number
+  created_at: string
+}
+
+export interface PlanBudgetWithUsage extends PlanBudget {
+  nominal_terpakai: number
+  sisa: number
+  status: PlanBudgetStatus
+}
 export type CategoryType = 'income' | 'expense'
 export type DebtStatus = 'active' | 'paid'
 export type GoalStatus = 'active' | 'achieved' | 'paused'

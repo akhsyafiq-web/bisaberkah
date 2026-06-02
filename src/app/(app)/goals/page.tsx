@@ -1,8 +1,7 @@
 import { redirect } from 'next/navigation'
-import Link from 'next/link'
 import { createClient } from '@/lib/supabase/server'
 import { PageHeader } from '@/components/layout/PageHeader'
-import { GoalsList } from '@/components/features/goals/GoalsList'
+import { RencanaClient } from '@/components/features/goals/RencanaClient'
 
 export default async function GoalsPage() {
   const supabase = await createClient()
@@ -21,18 +20,8 @@ export default async function GoalsPage() {
 
   return (
     <main>
-      <PageHeader
-        title="Goals Tabungan 🎯"
-        action={
-          <Link
-            href="/goals/new"
-            className="text-sm font-semibold text-primary"
-          >
-            + Baru
-          </Link>
-        }
-      />
-      <GoalsList householdId={householdId} />
+      <PageHeader title="Rencana" />
+      <RencanaClient householdId={householdId} userId={user.id} />
     </main>
   )
 }

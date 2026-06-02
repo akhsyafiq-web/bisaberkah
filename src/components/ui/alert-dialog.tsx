@@ -9,10 +9,11 @@ interface AlertDialogProps {
   onOpenChange: (open: boolean) => void
   title: string
   description?: string
+  children?: React.ReactNode        // extra content between description and buttons
   confirmLabel?: string
   confirmVariant?: 'destructive' | 'default'
   cancelLabel?: string
-  onConfirm: () => void
+  onConfirm?: () => void            // optional — omit to show only cancel button
   loading?: boolean
 }
 
@@ -21,9 +22,10 @@ export function AlertDialog({
   onOpenChange,
   title,
   description,
+  children,
   confirmLabel = 'Ya, lanjutkan',
   confirmVariant = 'destructive',
-  cancelLabel = 'Batal',
+  cancelLabel = 'Tutup',
   onConfirm,
   loading,
 }: AlertDialogProps) {
@@ -49,23 +51,28 @@ export function AlertDialog({
           <p className="text-base font-bold text-foreground">{title}</p>
           {description && <p className="text-sm text-muted-foreground">{description}</p>}
         </div>
+
+        {children}
+
         <div className="flex gap-3 pt-1">
           <Button
             variant="outline"
             onClick={() => onOpenChange(false)}
             disabled={loading}
-            className="flex-1 h-11"
+            className={onConfirm ? 'flex-1 h-11' : 'w-full h-11'}
           >
             {cancelLabel}
           </Button>
-          <Button
-            variant={confirmVariant}
-            onClick={onConfirm}
-            disabled={loading}
-            className="flex-1 h-11"
-          >
-            {loading ? 'Memproses…' : confirmLabel}
-          </Button>
+          {onConfirm && (
+            <Button
+              variant={confirmVariant}
+              onClick={onConfirm}
+              disabled={loading}
+              className="flex-1 h-11"
+            >
+              {loading ? 'Memproses…' : confirmLabel}
+            </Button>
+          )}
         </div>
       </div>
     </div>,

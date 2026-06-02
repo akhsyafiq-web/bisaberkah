@@ -1,7 +1,7 @@
 import { redirect } from 'next/navigation'
 import { createClient } from '@/lib/supabase/server'
 import { PageHeader } from '@/components/layout/PageHeader'
-import { BudgetClient } from '@/components/features/budget/BudgetClient'
+import { PlanBudgetClient } from '@/components/features/plan-budget/PlanBudgetClient'
 
 export default async function BudgetPage() {
   const supabase = await createClient()
@@ -20,8 +20,8 @@ export default async function BudgetPage() {
 
   return (
     <main>
-      <PageHeader title="Anggaran" />
-      <BudgetClient householdId={householdId} />
+      <PageHeader title="Anggaran Bulanan" />
+      <PlanBudgetClient householdId={householdId} userId={user.id} />
     </main>
   )
 }

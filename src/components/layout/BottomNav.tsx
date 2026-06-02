@@ -8,7 +8,7 @@ const tabs = [
   { href: '/dashboard', icon: House,              label: 'Beranda' },
   { href: '/reports',   icon: ChartNoAxesColumn,  label: 'Laporan' },
   { href: '/transactions/new', icon: Plus,        label: 'Tambah', isFab: true },
-  { href: '/goals',     icon: Target,             label: 'Tujuan' },
+  { href: '/goals',     icon: Target,             label: 'Rencana' },
   { href: '/settings',  icon: User,               label: 'Akun' },
 ]
 

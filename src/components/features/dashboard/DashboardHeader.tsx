@@ -21,7 +21,7 @@ export async function DashboardHeader() {
   const today = formatDayDate(new Date().toISOString().slice(0, 10))
 
   return (
-    <header className="flex items-start justify-between px-4 pt-5 pb-2">
+    <header className="flex items-start justify-between px-4 pt-5 pb-4">
       <div>
         <p className="text-sm text-muted-foreground">{today}</p>
         <h1 className="mt-0.5 text-lg font-semibold leading-tight">

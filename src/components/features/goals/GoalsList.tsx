@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
+import { Plus } from 'lucide-react'
 import { useGoals } from '@/hooks/useGoals'
 import { GoalCard } from './GoalCard'
 import { AddSavingSheet } from './AddSavingSheet'
@@ -14,10 +15,10 @@ interface GoalsListProps {
 }
 
 const FILTERS: { label: string; value: GoalStatus | 'all' }[] = [
-  { label: 'Semua', value: 'all' },
-  { label: 'Aktif', value: 'active' },
+  { label: 'Semua',    value: 'all' },
+  { label: 'Aktif',    value: 'active' },
   { label: 'Tercapai', value: 'achieved' },
-  { label: 'Ditunda', value: 'paused' },
+  { label: 'Ditunda',  value: 'paused' },
 ]
 
 export function GoalsList({ householdId }: GoalsListProps) {
@@ -38,7 +39,7 @@ export function GoalsList({ householdId }: GoalsListProps) {
 
   return (
     <div className="pb-6">
-      {/* Filter */}
+      {/* Filter chips */}
       <div className="flex gap-2 overflow-x-auto px-4 py-3 no-scrollbar">
         {FILTERS.map(f => (
           <button
@@ -64,12 +65,12 @@ export function GoalsList({ householdId }: GoalsListProps) {
         <div className="flex flex-col items-center gap-3 py-16 text-center px-8">
           <p className="text-4xl">🎯</p>
           <p className="text-base font-semibold">Tetapkan impianmu!</p>
-          <p className="text-sm text-muted-foreground">Buat goal pertamamu dan mulai menabung secara konsisten.</p>
+          <p className="text-sm text-muted-foreground">Buat tujuan pertamamu dan mulai menabung secara konsisten.</p>
           <Link
             href="/goals/new"
             className="mt-2 rounded-xl bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground"
           >
-            + Buat Goal Pertama
+            + Buat Tujuan Pertama
           </Link>
         </div>
       ) : (
@@ -79,6 +80,14 @@ export function GoalsList({ householdId }: GoalsListProps) {
               <GoalCard goal={goal} onAddSaving={g => { setSavingTarget(g) }} />
             </Link>
           ))}
+          {/* Tombol tambah tujuan baru — di bawah list */}
+          <Link
+            href="/goals/new"
+            className="flex w-full items-center justify-center gap-2 rounded-2xl border border-dashed border-border py-3.5 text-sm font-semibold text-primary active:bg-muted/40"
+          >
+            <Plus className="h-4 w-4" />
+            Buat Tujuan Baru
+          </Link>
         </div>
       )}
 

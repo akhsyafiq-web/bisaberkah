@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { GoalsList } from './GoalsList'
-import { PlanBudgetClient } from '@/components/features/plan-budget/PlanBudgetClient'
+import { EnvelopeClient } from '@/components/features/envelope/EnvelopeClient'
 import { cn } from '@/lib/utils/cn'
 
 interface RencanaClientProps {
@@ -43,7 +43,7 @@ export function RencanaClient({ householdId, userId }: RencanaClientProps) {
       {/* Tab content */}
       {tab === 'goals'
         ? <GoalsList householdId={householdId} />
-        : <PlanBudgetClient householdId={householdId} userId={userId} />
+        : <EnvelopeClient householdId={householdId} userId={userId} />
       }
     </div>
   )

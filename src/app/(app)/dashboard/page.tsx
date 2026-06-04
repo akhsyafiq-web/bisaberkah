@@ -7,6 +7,7 @@ import { QuickActions } from '@/components/features/dashboard/QuickActions'
 import { RecentTransactions } from '@/components/features/dashboard/RecentTransactions'
 import { GoalsWidget } from '@/components/features/dashboard/GoalsWidget'
 import { AmalWidget } from '@/components/features/dashboard/AmalWidget'
+import { EnvelopeSummaryWidget } from '@/components/features/dashboard/EnvelopeSummaryWidget'
 import {
   HeaderSkeleton,
   SaldoSkeleton,
@@ -48,6 +49,10 @@ export default async function DashboardPage() {
       </Suspense>
 
       <QuickActions />
+
+      <Suspense fallback={null}>
+        <EnvelopeSummaryWidget householdId={householdId} />
+      </Suspense>
 
       <Suspense fallback={<TransactionsSkeleton />}>
         <RecentTransactions householdId={householdId} />

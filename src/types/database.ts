@@ -1,30 +1,79 @@
 export type TransactionType = 'income' | 'expense'
-export type PlanBudgetStatus = 'aman' | 'mepet' | 'minus'
 
-export interface PlanBudget {
+/* ── Envelope budgeting (amplop digital) ───────────────────────────── */
+export type WalletStatus = 'normal' | 'mepet' | 'habis'
+
+export interface BudgetTemplate {
   id: string
   household_id: string
   user_id: string
   nama: string
   nominal_rencana: number
-  bulan: string       // YYYY-MM
-  warna: string | null
+  urutan: number
+  aktif: boolean
+  is_system: boolean
   created_at: string
   updated_at: string
 }
 
-export interface PlanBudgetUsage {
+export interface BudgetWallet {
   id: string
-  budget_id: string
-  transaksi_id: string
-  nominal: number
+  household_id: string
+  template_id: string
+  bulan: string            // YYYY-MM
+  saldo: number            // >= 0
+  nominal_rencana: number  // snapshot
   created_at: string
 }
 
-export interface PlanBudgetWithUsage extends PlanBudget {
-  nominal_terpakai: number
-  sisa: number
-  status: PlanBudgetStatus
+export interface IncomeAllocation {
+  id: string
+  pemasukan_id: string
+  wallet_id: string
+  nominal_dialokasikan: number
+  created_at: string
+}
+
+export interface ExpenseFromWallet {
+  id: string
+  pengeluaran_id: string
+  wallet_id: string
+  nominal: number
+  is_overflow: boolean
+  overflow_note: string | null
+  created_at: string
+}
+
+/** Dompet + metadata template (untuk display di kartu) */
+export interface WalletWithMeta extends BudgetWallet {
+  nama: string
+  is_system: boolean
+  urutan: number
+  terpakai: number         // total pengeluaran dari dompet ini bulan ini
+  status: WalletStatus
+}
+
+export interface WalletTransfer {
+  id: string
+  household_id: string
+  bulan: string
+  from_wallet_id: string | null
+  to_wallet_id: string | null
+  nominal: number
+  catatan: string | null
+  created_at: string
+}
+
+/** Item riwayat gabungan untuk halaman detail dompet */
+export type WalletHistoryKind = 'in' | 'out' | 'transfer_in' | 'transfer_out'
+
+export interface WalletHistoryItem {
+  id: string
+  kind: WalletHistoryKind
+  label: string
+  nominal: number          // selalu positif; tanda ditentukan oleh kind
+  date: string
+  catatan?: string | null
 }
 export type CategoryType = 'income' | 'expense'
 export type DebtStatus = 'active' | 'paid'
